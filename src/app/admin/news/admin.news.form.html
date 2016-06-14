@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="admin.news">
+        <a class="btn btn-danger pull-right" ui-sref="admin.news.index">
+            Cancel
+        </a>
+
+        <h1 class="page-header">Add News</h1>
+
+        <form class="form-horizontal" ng-submit="adminNewsForm.save(form)" name="form" no-validate>
+            <div class="form-group" ng-class="{'has-error': (form.$submitted || form.title.$touched) && form.title.$error.required }">
+                <label class="col-sm-2 col-lg-1 control-label">
+                    Title:
+                </label>
+                <div class="col-sm-10 col-lg-6">
+                    <input name="title" type="text" ng-model="adminNewsForm.news.title" class="form-control input-sm" required ng-change="adminNewsForm.suggestSlug()" ng-model-options="{updateOn: 'blur'}" />
+                    <div class="text-danger" ng-show="form.$submitted || form.title.$touched">
+                      <div ng-show="form.title.$error.required">Title is required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 col-lg-1 control-label">
+                    Slug:
+                </label>
+                <div class="col-sm-10 col-lg-6">
+                    <input name="slug" type="text" ng-model="adminNewsForm.news.slug" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error': (form.$submitted || form.date.$touched) && form.date.$error.required }">
+                <label class="col-sm-2 col-lg-1 control-label">
+                    Date:
+                </label>
+                <div class="col-sm-10 col-lg-6">
+                    <input name="date" type="date" ng-model="adminNewsForm.news.date" class="form-control input-sm" />
+                    <div class="text-danger" ng-show="form.$submitted || form.date.$touched">
+                      <div ng-show="form.date.$error.required">Date is required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error': (form.$submitted || form.language.$touched) && form.language.$error.required }">
+                <label class="col-sm-2 col-lg-1 control-label">
+                    Language:
+                </label>
+                <div class="col-sm-10 col-lg-6">
+                    <select name="language" class="form-control input-sm" required
+                            ng-model="adminNewsForm.news.language"
+                            ng-options="item as item.internationalName for item in adminNewsForm.languageOptions track by item._id" >
+                    </select>
+                    <div class="text-danger" ng-show="form.$submitted || form.language.$touched">
+                      <div ng-show="form.language.$error.required">Language is required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error': (form.$submitted || form.text.$touched) && form.text.$error.required }">
+                <label class="col-sm-2 col-lg-1 control-label">
+                    Content:
+                </label>
+                <div class="col-sm-10 col-lg-6">
+                    <textarea class="form-control" rows="10" ng-model="adminNewsForm.news.text"></textarea>
+                    <div class="text-danger" ng-show="form.$submitted || form.text.$touched">
+                      <div ng-show="form.text.$error.required">Content is required.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 col-lg-1 control-label">
+                    Image:
+                </label>
+                <div class="col-sm-10 col-lg-6">
+                    <upload-image category="news" ng-model="adminNewsForm.news.image"></upload-image>
+                    <hr/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2 col-lg-1"></div>
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

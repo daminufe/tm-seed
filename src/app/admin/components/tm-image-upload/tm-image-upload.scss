@@ -1,0 +1,17 @@
+.upload-image {
+    .drop-box {
+        border:3px dashed #DFDFDF;
+        padding: 10px;
+        text-align: center;
+    }
+    .dragover {
+        border-color: #FF0000;
+    }
+    .image-display {
+        padding: 15px;
+    }
+    .image-display img {
+        max-width: 500px;
+        max-height: 400px;
+    }
+}

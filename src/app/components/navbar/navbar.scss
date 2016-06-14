@@ -1,0 +1,165 @@
+.frontend {
+    @media (max-width: 1024px) {
+        .pull-right {
+            float: none !important;
+        }
+    }
+
+    nav.navbar {
+        margin-bottom: 0;
+        border-bottom: 10px solid #04205f;
+        background: #FFF;
+        height: 104px;
+
+        .navbar-toggle {
+            z-index: 99999999;
+            margin-right: 0;
+            padding: 10px 7px;
+
+            .top-icons {
+                font-size: 18px;
+            }
+        }
+
+        .navbar-brand {
+            max-width: 80%;
+            @media (max-width: 414px) {
+                max-width: 280px;
+            }
+            height: 95px;
+            img {
+                margin: 0 15px;
+                width: 100%;
+            }
+        }
+
+        .mobile-visible {
+            display: inline-block;
+            background: #FFF;
+            float: right;
+            padding: 0;
+            ul.navbar-nav {
+                margin:0;
+                li {
+                    border-bottom: 1px solid #EDEDED;
+                    a {
+                        line-height: 25px;
+                        padding: 10px;
+                    }
+                    &.dropdown {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        ul.navbar-nav {
+            li {
+                a {
+                    font-family: 'Open Sans', sans-serif;
+                    color: #000;
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 83px;
+                    padding: 10px 16px 0 16px;
+                    .glyphicon {
+                        font-size: 20px;
+                    }
+                    &:hover {
+                        background: $background-gray;
+                    }
+                }
+                &.active {
+                    a {
+                        color: #00a750;
+                        background: #FFF;
+                    }
+                }
+
+                ul.dropdown-menu {
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        a {
+                            line-height: 30px;
+                            font-size: 12px;
+                            border-bottom: 1px solid #EDEDED;
+                        }
+                    }
+                }
+            }
+        }
+        &.navbar-minimum {
+            transition: all ease 0.5s;
+            border-bottom-width: 5px;
+            height: 60px;
+
+            .navbar-toggle {
+                padding: 3px 7px;
+            }
+
+            .navbar-brand {
+                height: 95px;
+                img {
+                    margin: 0 15px;
+                }
+            }
+            ul.navbar-nav {
+                li {
+                    a {
+                        font-family: 'Open Sans', sans-serif;
+                        color: #000;
+                        font-size: 15px;
+                        font-weight: 600;
+                        line-height: 83px;
+                        padding: 10px 16px 0 16px;
+                        .glyphicon {
+                            font-size: 20px;
+                        }
+                        &:hover {
+                            background: $background-gray;
+                        }
+                    }
+                    &.active a {
+                        color: #00a750;
+                    }
+                }
+            }
+            &.navbar-minimum {
+                transition: all ease 0.5s;
+                border-bottom-width: 5px;
+                height: 60px;
+                .navbar-brand {
+                    transition: all ease 0.5s;
+                    height: 51px;
+                    padding-top: 5px;
+                    img {
+                        transition: height ease 0.5s;
+                        height: 50px;
+                    }
+                }
+                ul.navbar-nav {
+                    li {
+                        a {
+                            transition: all ease 0.5s;
+                            line-height: 53px;
+                            padding: 2px 16px 0 16px;
+                        }
+                        ul.dropdown-menu {
+                            margin: 0;
+                            padding: 0;
+                            li {
+                                a {
+                                    line-height: 30px;
+                                    font-size: 12px;
+                                    border-bottom: 1px solid #EDEDED;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

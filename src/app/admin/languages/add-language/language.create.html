@@ -1,0 +1,48 @@
+<div class="col-md-12 well">
+    <h3>
+        <span ng-if="!languageCreate.language._id">Creating</span>
+        <span ng-if="languageCreate.language._id">Editing</span>
+        language
+        <span ng-if="languageCreate.language._id" ng-bind="languageCreate.language.internationalName"></span>
+    </h3>
+
+    <form role="form">
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>
+                    ISO code
+                    <input type="text" maxlength="2" class="form-control" ng-model="languageCreate.language.isoCode"/>
+                </label>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>
+                    International name
+                    <input type="text" class="form-control" ng-model="languageCreate.language.internationalName"/>
+                </label>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>
+                    Native name
+                    <input type="text" class="form-control" ng-model="languageCreate.language.nativeName"/>
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="pull-right">
+                    <div class="checkbox col-md-8">
+                        <label>
+                            <input type="checkbox" ng-model="languageCreate.language.enabled" /> Enabled
+                        </label>
+                    </div>
+
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success pull-right" ng-click="languageCreate.saveLanguage()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

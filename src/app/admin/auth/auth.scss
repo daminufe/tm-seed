@@ -1,0 +1,35 @@
+.tm-admin-auth {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#49374d+0,2d3b5e+100 */
+    background: #49374d; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #49374d 0%, #2d3b5e 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #49374d 0%,#2d3b5e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #49374d 0%,#2d3b5e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#49374d', endColorstr='#2d3b5e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    height: 100%;
+
+    .container {
+        max-width: 400px;
+        padding-top: 100px;
+    }
+    h2 {
+        text-align: center;
+        color: #FFF;
+        padding-bottom: 30px;
+    }
+
+    input[type] {
+        background: #2B2E41;
+        border-color: #1E223B;
+        color: #FFF;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+    }
+
+    a {
+        color: #FFF;
+        text-decoration: none;
+    }
+}

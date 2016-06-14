@@ -1,0 +1,25 @@
+<div class="tm-multilanguage-input">
+    <ul class="btn-group" role="group">
+        <li class="btn-container" ng-repeat="language in multilanguage.availableLanguages">
+            <label
+                class="btn btn-xs btn-default language-pick"
+                ng-class="{ 'btn-primary': multilanguage.selectedLanguage.internationalName === language.internationalName }">
+                <input type="radio"
+                       ng-model="multilanguage.selectedLanguage"
+                       ng-value="language"
+                       ng-change="multilanguage.selectLanguageCb()">
+                <span>
+                    {{ language.internationalName }}
+                    <i ng-if="!multilanguage.model[language.isoCode] || multilanguage.model[language.isoCode] === ''"
+                       class="fa fa-exclamation-triangle"></i>
+                </span>
+            </label>
+        </li>
+    </ul>
+    <div class="input-group">
+        <div class="input-group-addon" ng-bind="multilanguage.selectedLanguage.nativeName"></div>
+        <input type="text" ng-if="!multilanguage.rows" class="form-control" ng-model="multilanguage.model[multilanguage.selectedLanguage.isoCode]">
+
+        <textarea ng-if="multilanguage.rows > 0" rows="{{ multilanguage.rows }}" class="form-control" ng-model="multilanguage.model[multilanguage.selectedLanguage.isoCode]"></textarea>
+    </div>
+</div>

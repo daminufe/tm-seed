@@ -1,0 +1,61 @@
+<div class="row offices header" autoscroll="true">
+    <div>
+        <a class="btn btn-success pull-right" ui-sref="admin.offices.create">
+            Add new office
+        </a>
+        <button class="btn btn-primary pull-right view-translations" ng-click="adminOffices.viewTranslations = !adminOffices.viewTranslations">View translations</button>
+
+        <h1 class="page-header">Our Offices</h1>
+
+        <p class="text-muted">
+            Here you can manage the "Offices" section on the home page. You can change translations.
+        </p>
+    </div>
+</div>
+
+
+<div class="row offices">
+
+    <div class="col-md-12" ng-if="adminOffices.viewTranslations">
+        <form role="form" ng-submit="adminOffices.save()">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <legend>Title</legend>
+                    <tm-multilanguage-input
+                        available-languages="adminOffices.availableLanguages"
+                        model="adminOffices.strings.offices.title"></tm-multilanguage-input>
+
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                </div>
+
+            </div>
+            <hr/>
+        </form>
+    </div>
+
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <th>Company name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Created By</th>
+            </tr>
+            <tr ng-repeat="item in adminOffices.offices">
+                <td>
+                    <a ui-sref="admin.offices.edit({officeId: item._id})">
+                        {{item.title}}
+                    </a>
+                </td>
+                <td ng-bind="item.window.country"></td>
+                <td ng-bind="item.window.address.location"></td>
+                <td ng-bind="item.createdBy.name"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>

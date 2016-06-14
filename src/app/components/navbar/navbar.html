@@ -1,0 +1,57 @@
+<nav class="navbar navbar-fixed-top eurus-navbar">
+    <div class="navbar-header">
+        <div class="navbar-toggle">
+            <div class="dropdown navbar-toggle flag-toggle" uib-dropdown>
+                <a href uib-dropdown-toggle>
+                    <span class="glyphicon glyphicon-flag top-icons"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+                    <li ng-repeat="language in vm.languages"
+                        ng-class="{active: vm.currentLang.toLowerCase() === language.isoCode.toLowerCase()}">
+                        <a href ng-click="vm.selectLanguage(language)">
+                            {{language.internationalName}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        <span uib-dropdown on-toggle="vm.toggleMobileMenu(open)">
+            <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-top"
+                    aria-expanded="false" uib-dropdown-toggle>
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars top-icons" aria-hidden="true"></i>
+            </button>
+        </span>
+        </div>
+        <a class="navbar-brand" ui-sref="home.index">
+            <img src="/assets/images/logo.png" alt="Logo"/>
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-top" ng-class="{'mobile-visible': vm.mobileVisible}">
+        <div class="pull-right">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="home.about-us" translate="about_us.title"></a>
+                </li>
+                <li><a ui-sref="home.investments" translate="investments.title"></a></li>
+                <li><a ui-sref="home.homeprojects" translate="projects.title"></a></li>
+                <li><a ui-sref="home.homenews" translate="news.title"></a></li>
+                <li><a ui-sref="home.team"translate="team.title"></a></li>
+                <li><a ui-sref="home.contact" translate="contacts.title"></a></li>
+                <li class="dropdown" uib-dropdown>
+                    <a href uib-dropdown-toggle>
+                        <span class="glyphicon glyphicon-flag"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+                        <li ng-repeat="language in vm.languages"
+                            ng-class="{active: vm.currentLang.toLowerCase() === language.isoCode.toLowerCase()}">
+                            <a href ng-click="vm.selectLanguage(language)">
+                                {{language.internationalName}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

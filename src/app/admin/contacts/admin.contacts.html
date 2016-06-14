@@ -1,0 +1,111 @@
+<div class="row team header" autoscroll="true">
+    <div>
+        <button class="btn btn-primary pull-right view-translations" ng-click="adminContacts.viewTranslations = !adminContacts.viewTranslations">View translations</button>
+
+        <h1 class="page-header">Contacts</h1>
+
+        <p class="text-muted">
+            Here you can manage the "Contacts" section on the home page. You can change translations.
+        </p>
+    </div>
+</div>
+
+
+<div class="row team">
+
+    <div class="col-md-12">
+        <form role="form" ng-submit="adminContacts.save()">
+
+            <div class="translations" ng-if="adminContacts.viewTranslations">
+                <div class="row">
+                    <div class="col-md-12">
+                        <legend>Title</legend>
+                        <tm-multilanguage-input
+                            available-languages="adminContacts.availableLanguages"
+                            model="adminContacts.strings.contacts.title"></tm-multilanguage-input>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <legend>Our email</legend>
+                        <tm-multilanguage-input
+                            available-languages="adminContacts.availableLanguages"
+                            model="adminContacts.strings.contacts.our_email"></tm-multilanguage-input>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <legend>Contact form</legend>
+
+                            <label>Name</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.name"></tm-multilanguage-input>
+
+                            <label>Name placeholder</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.name_placeholder"></tm-multilanguage-input>
+
+                            <label>Email address</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.email"></tm-multilanguage-input>
+
+                            <label>Email address placeholder</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.email_placeholder"></tm-multilanguage-input>
+
+                            <label>Message</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.message"></tm-multilanguage-input>
+
+                            <label>Message placeholder</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.message_placeholder"></tm-multilanguage-input>
+
+                            <label>Send message</label>
+                            <tm-multilanguage-input
+                                available-languages="adminContacts.availableLanguages"
+                                model="adminContacts.strings.contacts.send_essage"></tm-multilanguage-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <!--<table class="table table-hover">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>Name</th>-->
+                    <!--<th>Email</th>-->
+                    <!--<th>Received</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tr ng-repeat="message in adminContacts.contacts">-->
+                    <!--<td ng-bind="message.name"></td>-->
+                    <!--<td ng-bind="message.email"></td>-->
+                    <!--<td ng-bind="message.created"></td>-->
+                <!--</tr>-->
+            <!--</table>-->
+
+
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+.tm-admin {
+    .navbar-top-links {
+        margin-right: 0;
+        > li {
+            display: inline-block;
+            &:last-child {
+                margin-right: 15px;
+            }
+            a {
+                display: inline-block;
+                padding: 15px;
+                min-height: 50px;
+                text-decoration: none;
+            }
+            .dropdown-menu {
+                > li {
+                    > a {
+                        display: block;
+                    }
+                }
+                div {
+                    white-space: normal;
+                }
+            }
+        }
+        .dropdown-messages,
+        .dropdown-tasks,
+        .dropdown-alerts {
+            width: 310px;
+            min-width: 0;
+        }
+        .dropdown-messages {
+            margin-left: 5px;
+        }
+    }
+}

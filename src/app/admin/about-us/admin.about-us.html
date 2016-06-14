@@ -1,0 +1,396 @@
+<div class="row about-us header">
+    <div>
+        <h1 class="page-header">About us</h1>
+
+        <p class="text-muted">
+            Here you can manage the "About us" section on the home page. You can change translations and numbers.
+        </p>
+    </div>
+</div>
+
+
+<div class="row about-us">
+
+    <div class="col-md-12">
+        <form role="form" ng-submit="adminAbout.save()">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group translatable-box">
+                        <legend>Title</legend>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.title"></tm-multilanguage-input>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group translatable-box">
+                        <legend>Summary</legend>
+                        <tm-multilanguage-input
+                            rows="3"
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.summary"></tm-multilanguage-input>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Since</label>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.since">
+
+                        <label class="translatable-box">'Since' translation</label>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.since"
+                            selected="selectedLanguage[0]"></tm-multilanguage-input>
+                    </div>
+                </div>
+                <div class="col-md-4 demo-box">
+                    <eurus-since
+                        year="adminAbout.aboutUs.values.since"
+                        strings="adminAbout.strings.about_us"
+                        override-language="selectedLanguage[0]"></eurus-since>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Installed capacity</label>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.installedCapacity">
+
+                        <label class="translatable-box">Line 1</label>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.installed"
+                            selected="selectedLanguage[1]"></tm-multilanguage-input>
+
+                        <label class="translatable-box">Line 2</label>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.capacity"
+                            selected="selectedLanguage[1]"></tm-multilanguage-input>
+                    </div>
+                </div>
+                <div class="col-md-4 demo-box">
+                    <eurus-installed-capacity
+                        mw="adminAbout.aboutUs.values.installedCapacity"
+                        strings="adminAbout.strings.about_us"
+                        override-language="selectedLanguage[1]"></eurus-installed-capacity>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Countries</label>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.countries">
+
+                        <label class="translatable-box">'Countries' translation</label>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.countries"
+                            selected="selectedLanguage[2]"></tm-multilanguage-input>
+                    </div>
+                </div>
+                <div class="col-md-4 demo-box">
+                    <eurus-countries amount="adminAbout.aboutUs.values.countries"
+                                     strings="adminAbout.strings.about_us"
+                                     override-language="selectedLanguage[2]"></eurus-countries>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <legend>Growth</legend>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">Max. MW</div>
+                            <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.growth.maxMw">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-addon">Last year</div>
+                            <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.growth.lastYear">
+                        </div>
+
+                        <label class="translatable-box">'Growth' translation</label>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.growth"
+                            selected="selectedLanguage[3]"></tm-multilanguage-input>
+
+                        <label class="translatable-box">'Year' translation</label>
+                        <tm-multilanguage-input
+                            available-languages="adminAbout.availableLanguages"
+                            model="adminAbout.strings.about_us.year"
+                            selected="selectedLanguage[3]"></tm-multilanguage-input>
+                    </div>
+                </div>
+                <div class="col-md-4 demo-box">
+                    <eurus-growth
+                        growth="adminAbout.aboutUs.values.growth.maxMw"
+                        begin="adminAbout.aboutUs.values.since"
+                        end="adminAbout.aboutUs.values.growth.lastYear"
+                        strings="adminAbout.strings.about_us"
+                        override-language="selectedLanguage[3]"></eurus-growth>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <legend>Sectors</legend>
+                        <div class="col-md-6">
+                            <strong>Wind</strong> (Percentage is defined here)
+                            <div class="input-group">
+                                <div class="input-group-addon">%</div>
+                                <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.sectors.wind.percentage">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-addon">Mw</div>
+                                <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.sectors.wind.mw">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Solar</strong>
+                            <div class="input-group">
+                                <div class="input-group-addon">Mw</div>
+                                <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.sectors.solar.mw">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="translatable-box">'Sectors' translation</label>
+                            <tm-multilanguage-input
+                                available-languages="adminAbout.availableLanguages"
+                                model="adminAbout.strings.about_us.sectors"
+                                selected="selectedLanguage[4]"></tm-multilanguage-input>
+
+                            <label class="translatable-box">'Onshore wind' translation</label>
+                            <tm-multilanguage-input
+                                available-languages="adminAbout.availableLanguages"
+                                model="adminAbout.strings.about_us.onshore_wind"
+                                selected="selectedLanguage[4]"></tm-multilanguage-input>
+
+                            <label class="translatable-box">'Solar' translation</label>
+                            <tm-multilanguage-input
+                                available-languages="adminAbout.availableLanguages"
+                                model="adminAbout.strings.about_us.solar"
+                                selected="selectedLanguage[4]"></tm-multilanguage-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 demo-box">
+                    <eurus-sectors
+                        wind-percent="adminAbout.aboutUs.values.sectors.wind.percentage"
+                        wind-mw="adminAbout.aboutUs.values.sectors.wind.mw"
+                        solar-mw="adminAbout.aboutUs.values.sectors.solar.mw"
+                        strings="adminAbout.strings.about_us"
+                        override-language="selectedLanguage[4]"></eurus-sectors>
+
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <legend>Continents</legend>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <strong>Americas</strong>
+                                <div class="input-group">
+                                    <div class="input-group-addon">%</div>
+                                    <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.continents.americas.percentage">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">Mw</div>
+                                    <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.continents.americas.mw">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Europe</strong>
+                                <div class="input-group">
+                                    <div class="input-group-addon">%</div>
+                                    <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.continents.europe.percentage">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">Mw</div>
+                                    <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.continents.europe.mw">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Asia / Pacific</strong>
+                                <div class="input-group">
+                                    <div class="input-group-addon">%</div>
+                                    <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.continents.asia_pacific.percentage">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">Mw</div>
+                                    <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.continents.asia_pacific.mw">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="translatable-box">'Continents' translation</label>
+                                <tm-multilanguage-input
+                                    available-languages="adminAbout.availableLanguages"
+                                    model="adminAbout.strings.about_us.continents"
+                                    selected="selectedLanguage[5]"></tm-multilanguage-input>
+
+                                <label class="translatable-box">'Americas' translation</label>
+                                <tm-multilanguage-input
+                                    available-languages="adminAbout.availableLanguages"
+                                    model="adminAbout.strings.about_us.americas"
+                                    selected="selectedLanguage[5]"></tm-multilanguage-input>
+
+                                <label class="translatable-box">'Europe' translation</label>
+                                <tm-multilanguage-input
+                                    available-languages="adminAbout.availableLanguages"
+                                    model="adminAbout.strings.about_us.europe"
+                                    selected="selectedLanguage[5]"></tm-multilanguage-input>
+
+                                <label class="translatable-box">'Asia Pacific' translation</label>
+                                <tm-multilanguage-input
+                                    available-languages="adminAbout.availableLanguages"
+                                    model="adminAbout.strings.about_us.asia_pacific"
+                                    selected="selectedLanguage[5]"></tm-multilanguage-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 demo-box">
+                    <eurus-continents
+                        americas-percent="adminAbout.aboutUs.values.continents.americas.percentage"
+                        americas-mw="adminAbout.aboutUs.values.continents.americas.mw"
+                        europe-percent="adminAbout.aboutUs.values.continents.europe.percentage"
+                        europe-mw="adminAbout.aboutUs.values.continents.europe.mw"
+                        asia-pacific-percent="adminAbout.aboutUs.values.continents.asia_pacific.percentage"
+                        asia-pacific-mw="adminAbout.aboutUs.values.continents.asia_pacific.mw"
+                        strings="adminAbout.strings.about_us"
+                        override-language="selectedLanguage[5]"></eurus-continents>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row data-per-year-edit">
+                <legend>Data per year:</legend>
+                <div class="col-md-3 data-per-year-container">
+                    <div class="input-group">
+                        <div class="input-group-addon">Electricity per year</div>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.electricityPerYear">
+                    </div>
+                </div>
+
+                <div class="col-md-3 data-per-year-container">
+                    <div class="input-group">
+                        <div class="input-group-addon">Households per year</div>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.householdsPerYear">
+                    </div>
+                </div>
+
+                <div class="col-md-3 data-per-year-container">
+                    <div class="input-group">
+                        <div class="input-group-addon">CO<sup>2</sup> Saved per year</div>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.co2SavedPerYear">
+                    </div>
+                </div>
+
+                <div class="col-md-3 data-per-year-container">
+                    <div class="input-group">
+                        <div class="input-group-addon">Trees saved per year</div>
+                        <input type="text" class="form-control" ng-model="adminAbout.aboutUs.values.treesSavedPerYear">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="translatable-box">'Electricity per year' translation</label>
+                    <tm-multilanguage-input
+                        available-languages="adminAbout.availableLanguages"
+                        model="adminAbout.strings.about_us.electricity_per_year"
+                        selected="selectedLanguage[6]"></tm-multilanguage-input>
+
+                    <label class="translatable-box">'Households per year' translation</label>
+                    <tm-multilanguage-input
+                        available-languages="adminAbout.availableLanguages"
+                        model="adminAbout.strings.about_us.households_per_year"
+                        selected="selectedLanguage[6]"></tm-multilanguage-input>
+
+                    <label class="translatable-box">'Ton CO2 saved per year' translation</label>
+                    <tm-multilanguage-input
+                        available-languages="adminAbout.availableLanguages"
+                        model="adminAbout.strings.about_us.co2_saved_per_year"
+                        selected="selectedLanguage[6]"></tm-multilanguage-input>
+
+                    <label class="translatable-box">'Trees saved per year' translation</label>
+                    <tm-multilanguage-input
+                        available-languages="adminAbout.availableLanguages"
+                        model="adminAbout.strings.about_us.trees_saved_per_year"
+                        selected="selectedLanguage[6]"></tm-multilanguage-input>
+
+                </div>
+            </div>
+
+            <div class="row data-per-year-demo">
+                <div class="col-md-12 demo-box">
+                    <eurus-data-per-year
+                        electricity="adminAbout.aboutUs.values.electricityPerYear"
+                        households="adminAbout.aboutUs.values.householdsPerYear"
+                        co2="adminAbout.aboutUs.values.co2SavedPerYear"
+                        trees="adminAbout.aboutUs.values.treesSavedPerYear"
+                        strings="adminAbout.strings.about_us"
+                        override-language="selectedLanguage[6]"></eurus-data-per-year>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="translatable-box">'GWH' translation</label>
+                    <tm-multilanguage-input
+                        available-languages="adminAbout.availableLanguages"
+                        model="adminAbout.strings.about_us.gwh"></tm-multilanguage-input>
+
+                    <label class="translatable-box">'MLN' translation</label>
+                    <tm-multilanguage-input
+                        available-languages="adminAbout.availableLanguages"
+                        model="adminAbout.strings.about_us.mln"></tm-multilanguage-input>
+                </div>
+            </div>
+
+
+            <hr/>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

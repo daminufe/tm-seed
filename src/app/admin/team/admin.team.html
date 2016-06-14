@@ -1,0 +1,73 @@
+<div class="row team header" autoscroll="true">
+    <div>
+        <h1 class="page-header">Our team</h1>
+
+        <p class="text-muted">
+            Here you can manage the "Team" section on the home page. You can change translations.
+        </p>
+    </div>
+</div>
+
+
+<div class="row team">
+
+    <div class="col-md-12">
+        <form role="form" ng-submit="adminTeam.save()">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <legend>Title</legend>
+                    <tm-multilanguage-input
+                        available-languages="adminTeam.availableLanguages"
+                        model="adminTeam.strings.team.title"></tm-multilanguage-input>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <legend>Summary</legend>
+                    <tm-multilanguage-input
+                        rows="3"
+                        available-languages="adminTeam.availableLanguages"
+                        model="adminTeam.strings.team.summary"></tm-multilanguage-input>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-md-6 well" ng-repeat="member in adminTeam.members.values">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" ng-model="member.name">
+
+                        <label>Role</label>
+                        <tm-multilanguage-input
+                            available-languages="adminTeam.availableLanguages"
+                            model="member.role"></tm-multilanguage-input>
+
+                        <label>Summary</label>
+                        <tm-multilanguage-input
+                            rows="2"
+                            available-languages="adminTeam.availableLanguages"
+                            model="member.summary"></tm-multilanguage-input>
+
+                        <div class="well">
+                            <upload-image category="news" ng-model="member.image"></upload-image>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

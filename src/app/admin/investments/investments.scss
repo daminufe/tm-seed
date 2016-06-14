@@ -1,0 +1,21 @@
+.tm-admin {
+    .investments {
+        .demo-box {
+            padding: 10px;
+            color: #FFF;
+            background: #fff;
+            text-align: center;
+        }
+
+        .form-group {
+            label {
+                margin-top: 1rem;
+
+                &.multilanguage {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+
+}

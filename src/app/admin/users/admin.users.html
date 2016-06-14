@@ -1,0 +1,24 @@
+<a ui-sref="admin.user.create" class="btn btn-primary pull-right">
+    <i class="fa fa-user-plus" aria-hidden="true"></i>
+    Add user
+</a>
+<h3 class="page-header">Users</h3>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="user in adminUsers.paginate.docs">
+        <td>
+            <strong>{{user.name}}</strong>
+        </td>
+        <td>{{user.email}}</td>
+        <td>
+            <button type="button" class="btn btn-sm btn-danger" ng-click="adminUsers.delete(user)">
+                <span class="fa fa-trash"></span>
+            </button>
+        </td>
+    </tr>
+</table>

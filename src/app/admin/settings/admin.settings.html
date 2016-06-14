@@ -1,0 +1,37 @@
+<div class="row settings header" autoscroll="true">
+    <div>
+        <h1 class="page-header">Settings</h1>
+
+        <p class="text-muted">
+            Global website configuration
+        </p>
+    </div>
+</div>
+
+
+<div class="row settings">
+
+    <div class="col-md-12">
+        <form role="form" ng-submit="adminSettings.save()">
+
+            <div class="row" ng-repeat="setting in adminSettings.settings">
+                <div class="form-group">
+                    <label ng-bind="setting.label"></label>
+                    <div ng-switch="setting.type">
+                        <input name="{{ setting.key }}" type="checkbox" ng-switch-when="checkbox" ng-model="setting.value" />
+                        <input name="{{ setting.key }}" type="text" ng-switch-default ng-model="setting.value" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

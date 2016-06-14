@@ -1,0 +1,15 @@
+.tm-admin {
+    .settings {
+
+        .form-group {
+            label {
+                margin-top: 1rem;
+
+                &.multilanguage {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+
+}

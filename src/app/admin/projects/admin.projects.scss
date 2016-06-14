@@ -1,0 +1,45 @@
+.eurus-admin-projects {
+    .project-type {
+        .type-box {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            width: 180px;
+
+            .subtitle {
+                position: relative;
+                bottom: 20px;
+            }
+        }
+
+        label > input {
+            display:none;
+        }
+
+        label > input + img{
+            cursor:pointer;
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid transparent;
+        }
+
+        label > input:checked + img{
+            border: 2px solid $border-green;
+        }
+    }
+
+    .view-translations {
+        margin-right: 20px;
+    }
+
+    .translations{
+        .save {
+            position: relative;
+            margin-top: 20px;
+        }
+    }
+
+    .cancel-form {
+        margin-top: 40px;
+    }
+}

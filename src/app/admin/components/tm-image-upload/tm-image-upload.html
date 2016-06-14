@@ -1,0 +1,40 @@
+<div class="upload-image">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="btn btn-primary"
+                ngf-select="vm.upload($file)"
+                name="file"
+                ngf-pattern="'image/*'"
+                ngf-accept="'image/*'"
+                ngf-max-size="20MB"
+                ngf-min-height="100"
+                ngf-resize="{width: 540}">
+                Choose file
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div
+                ngf-drop="vm.uploadFiles($files)"
+                class="drop-box"
+                ngf-drag-over-class="'dragover'"
+                ngf-multiple="false"
+                ngf-pattern="'image/*'">
+                Drag &amp; drop file
+            </div>
+            <div ngf-no-file-drop>Update your browser</div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="img-display" ng-if="vm.image">
+            <hr/>
+            <img ng-src="{{vm.image}}" class="img-responsive" />
+            <hr/>
+            <button type="button" class="btn btn-danger" ng-click="vm.remove()">
+                <i class="fa fa-trash"></i> Remove file
+            </button>
+        </div>
+    </div>
+</div>

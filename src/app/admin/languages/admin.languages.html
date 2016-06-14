@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="languages">
+        <button class="btn btn-success add-language pull-right"
+                ng-if="!adminLanguages.editing"
+                ng-click="adminLanguages.editing = true">Add language</button>
+
+        <button class="btn btn-danger cancel pull-right"
+                ng-if="adminLanguages.editing"
+                ng-click="adminLanguages.cancelEdit()">Cancel</button>
+        <h1 class="page-header">Languages</h1>
+
+        <p class="text-muted">
+            Here you can manage the languages that you want to make available on the website. If marked as disabled, the language won't be shown to the users. It's good to keep it disabled in case you are working on the translation itself.
+        </p>
+    </div>
+</div>
+
+<div class="row" ng-if="adminLanguages.editing">
+    <language-create
+        editing="adminLanguages.editing"
+        language="adminLanguages.currentLanguage"
+        save-callback="adminLanguages.savedCallback"></language-create>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ISO CODE</th>
+                <th>International name</th>
+                <th>Native name</th>
+                <th>Added</th>
+                <th>Enabled</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="language in adminLanguages.languages">
+                    <td ng-bind="language.isoCode"></td>
+                    <td ng-bind="language.internationalName"></td>
+                    <td ng-bind="language.nativeName"></td>
+                    <td><span ng-bind="(language.created | date)"></span>
+                        <small>by <i ng-bind="language.createdBy.name"></i></small></td>
+                    <td><i class="fa" ng-class="{'fa-check': language.enabled, 'fa-times': !language.enabled}"></i></td>
+                    <td>
+                        <button class="btn btn-xs btn-default"
+                                ng-click="adminLanguages.editLanguage(language)">
+                            <i class="fa fa-edit"></i></button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

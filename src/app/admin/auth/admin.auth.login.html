@@ -1,0 +1,21 @@
+<form ng-submit="adminAuthLogin.authenticate()">
+    <div class="form-group">
+        <input type="text" ng-model="adminAuthLogin.form.username" class="form-control input-lg" placeholder="Username" />
+    </div>
+    <div class="form-group">
+        <input type="password" ng-model="adminAuthLogin.form.password" class="form-control input-lg" placeholder="Password" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg">
+            <span class="fa fa-sign-in" aria-hidden="true"></span>
+            Sign in
+        </button>
+    </div>
+    <div class="form-group pull-right">
+        <a ui-sref="auth.forgot">
+            <span class="fa fa-question" aria-hidden="true"></span>
+            Forgot password
+        </a>
+    </div>
+</form>
