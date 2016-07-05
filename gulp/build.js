@@ -4,7 +4,6 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 var install = require("gulp-install");
-import babel from 'gulp-babel'
 
 var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -109,7 +108,6 @@ gulp.task('build:api', function () {
         path.join(conf.paths.src, '/api/**/*.{js,svg}'),
     ])
         .pipe(fileFilter)
-        .pipe(babel())
         .pipe(gulp.dest(path.join(conf.paths.dist, '/api/')));
 });
 

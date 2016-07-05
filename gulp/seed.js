@@ -1,20 +1,20 @@
 'use strict'
 
-import gulp from 'gulp'
-import mongoose from '../src/api/mongoose-config'
-import util from 'gulp-util'
-import chalk from 'chalk'
+let gulp = require('gulp');
+let mongoose = require('../src/api/mongoose-config');
+let util = require('gulp-util');
+let chalk = require('chalk');
 
 
-let User = mongoose.model('User')
-let Language = mongoose.model('Language')
-let Page = mongoose.model('Page')
+let User = mongoose.model('User');
+let Language = mongoose.model('Language');
+let Page = mongoose.model('Page');
 
-gulp.task('seed', ['seed:admin', 'seed:languages', 'seed:settings'])
+gulp.task('seed', ['seed:admin', 'seed:languages', 'seed:settings']);
 
 gulp.task('seed:admin', () => {
-    let password = Math.random().toString(36).slice(-6)
-    let email = util.env.email || 'contact@example.com'
+    let password = Math.random().toString(36).slice(-6);
+    let email = util.env.email || 'contact@example.com';
     let user = new User({
         name: 'Admin',
         username: 'admin',
@@ -22,7 +22,7 @@ gulp.task('seed:admin', () => {
         password: password,
         roles: ['admin'],
         updated: Date.now()
-    })
+    });
 
     user.save(function (err) {
         if (err) {

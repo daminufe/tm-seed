@@ -1,7 +1,8 @@
 (function () {
     'use strict';
+
     angular.module('eurus')
-    .filter('translateItem', translateItem);
+        .filter('translateItem', translateItem);
 
     function translateItem ($translate) {
         return function (input) {
@@ -9,6 +10,7 @@
             if (input && input[lang]) {
                 return input[lang];
             }
+
             return input;
         }
     }

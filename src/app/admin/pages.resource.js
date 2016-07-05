@@ -1,5 +1,6 @@
 (function () {
     'use strict';
+
     angular.module('tm.admin')
         .factory('Page', Page);
 

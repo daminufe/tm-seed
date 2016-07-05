@@ -4,7 +4,6 @@
     angular
         .module('core')
         .config(config)
-        .config(configMap)
         .config(configTranslation);
 
     /** @ngInject */
