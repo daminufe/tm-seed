@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer'
-import mg from 'nodemailer-mailgun-transport'
+let nodemailer = require('nodemailer');
+let mg = require('nodemailer-mailgun-transport');
 
 
 let auth = {
@@ -7,6 +7,6 @@ let auth = {
         api_key: process.ENV.MAILGUN_API_KEY,
         domain: 'eurus-europe.com'
     }
-}
+};
 
-export default nodemailer.createTransport(mg(auth))
+module.exports = nodemailer.createTransport(mg(auth));

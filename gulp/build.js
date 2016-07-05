@@ -108,8 +108,8 @@ gulp.task('build:api', function () {
     return gulp.src([
         path.join(conf.paths.src, '/api/**/*.{js,svg}'),
     ])
-        .pipe(babel())
         .pipe(fileFilter)
+        .pipe(babel())
         .pipe(gulp.dest(path.join(conf.paths.dist, '/api/')));
 });
 

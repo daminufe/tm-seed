@@ -1,8 +1,7 @@
-'use strict'
+'use strict';
 
-import mongoose from 'mongoose'
-
-let Schema = mongoose.Schema
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 let schema = Schema({
     created: { type: Date, default: Date.now },
@@ -14,6 +13,6 @@ let schema = Schema({
     internationalName: String,
     nativeName: String,
     strings: Schema.Types.Mixed
-})
+});
 
-export default mongoose.model('Language', schema)
+module.exports = mongoose.model('Language', schema);

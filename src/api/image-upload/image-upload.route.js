@@ -1,15 +1,15 @@
-'use strict'
+'use strict';
 
-import server from '../server'
-import RoleAccess from '../role-access'
+let server = require('../server');
+let RoleAccess = require('../role-access');
 
-import * as Controller from './image-upload.controller'
+let Controller = require('./image-upload.controller');
 
 server.use(RoleAccess({
     'prefix': '/api/file-upload',
     'roles': ['admin']
-}))
+}));
 
-server.post('/api/file-upload', Controller.postImage)
+server.post('/api/file-upload', Controller.postImage);
 
-export default server
+module.exports = server;

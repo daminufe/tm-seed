@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
-import mongoosePaginate from 'mongoose-paginate'
+let mongoose = require('mongoose');
+let bcrypt = require('bcrypt');
+let mongoosePaginate = require('mongoose-paginate');
 
-const SALT_WORK_FACTOR = 10
+const SALT_WORK_FACTOR = 10;
 
 let schema = mongoose.Schema({
     created: {
@@ -32,35 +32,35 @@ let schema = mongoose.Schema({
         default: ['user'],
         required: true
     }
-})
-schema.plugin(mongoosePaginate)
+});
+schema.plugin(mongoosePaginate);
 
 schema.pre('save', (next) => {
-    let user = this
+    let user = this;
 
     // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password')) return next()
+    if (!user.isModified('password')) return next();
 
     // generate a salt
     bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
-        if (err) return next(err)
+        if (err) return next(err);
 
         // hash the password along with our new salt
         bcrypt.hash(user.password, salt, (err, hash) => {
-            if (err) return next(err)
+            if (err) return next(err);
 
             // override the cleartext password with the hashed one
-            user.password = hash
-            next()
-        })
-    })
-})
+            user.password = hash;
+            next();
+        });
+    });
+});
 
 schema.methods.comparePassword = (candidatePassword, cb) => {
     bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-        if (err) return cb(err)
-        cb(null, isMatch)
+        if (err) return cb(err);
+        cb(null, isMatch);
     })
 }
 
-export default mongoose.model('User', schema)
+module.exports = mongoose.model('User', schema);

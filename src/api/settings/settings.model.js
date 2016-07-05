@@ -1,7 +1,8 @@
-'use strict'
-import mongoose from 'mongoose'
+'use strict';
 
-let Schema = mongoose.Schema
+let mongoose = require('mongoose');
+
+let Schema = mongoose.Schema;
 
 let schema = Schema({
     key: String,
@@ -9,6 +10,6 @@ let schema = Schema({
     public: Boolean,
     type: String,
     value: Schema.Types.Mixed
-})
+});
 
-export default mongoose.model('Settings', schema)
+module.exports = mongoose.model('Settings', schema);

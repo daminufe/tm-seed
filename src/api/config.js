@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-import path from 'path'
+let path = require('path');
 
-let rootPath = path.normalize(__dirname + '/..')
+let rootPath = path.normalize(__dirname + '/..');
 
 let config = {
     development: {
@@ -67,6 +67,6 @@ let config = {
             }
         }
     }
-}
+};
 
-export default config[process.env.NODE_ENV || 'development']
+module.exports = config[process.env.NODE_ENV || 'development'];

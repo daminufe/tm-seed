@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-import mongoose from 'mongoose'
+let mongoose = require('mongoose');
 
-let Schema = mongoose.Schema
+let Schema = mongoose.Schema;
 
 var schema = Schema({
     name: String,
@@ -11,7 +11,6 @@ var schema = Schema({
     createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
     updated: Date,
     updatedBy: { type: Schema.Types.ObjectId, ref: 'User' }
+});
 
-})
-
-export default mongoose.model('Page', schema)
+module.exports = mongoose.model('Page', schema);

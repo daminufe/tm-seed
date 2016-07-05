@@ -1,17 +1,18 @@
-'use strict'
+'use strict';
 
-import server from '../server'
-import RoleAccess from '../role-access'
+let server = require('../server');
+let RoleAccess = require('../role-access');
+let Controller = require('./page.controller');
 
 server.use(RoleAccess({
     'prefix': '/api/page',
     'roles': ['admin']
-}))
+}));
 
-server.get('/api/public/page', getPageData)
-server.get('/api/public/page/:name', getPageData)
+server.get('/api/public/page', Controller.getPageData);
+server.get('/api/public/page/:name', Controller.getPageData);
 
-server.post('/api/page', postPage)
-server.put('/api/page/:name', putPage)
+server.post('/api/page', Controller.postPage);
+server.put('/api/page/:name', Controller.putPage);
 
-export default server
+module.exports = server;

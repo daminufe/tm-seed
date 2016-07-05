@@ -1,18 +1,18 @@
-'use strict'
+'use strict';
 
-import server from '../server'
-import RoleAccess from '../role-access'
+let server = require('../server');
+let RoleAccess = require('../role-access');
 
-import * as Controller from './settings.controller'
+let Controller = require('./settings.controller');
 
 server.use(RoleAccess({
     'prefix': '/api/settings',
     'roles': ['admin']
-}))
+}));
 
-server.get('/api/public/settings', Controller.getPublicSettings)
+server.get('/api/public/settings', Controller.getPublicSettings);
 
-server.get('/api/settings', Controller.getSettings)
-server.put('/api/settings', Controller.putSettings)
+server.get('/api/settings', Controller.getSettings);
+server.put('/api/settings', Controller.putSettings);
 
-export default server
+module.exports = server;
