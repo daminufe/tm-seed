@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('eurus')
+        .module('core')
         .directive('navbar', navbar);
 
     /** @ngInject */

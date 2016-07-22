@@ -5,7 +5,7 @@ let mg = require('nodemailer-mailgun-transport');
 let auth = {
     auth: {
         api_key: process.ENV.MAILGUN_API_KEY,
-        domain: 'eurus-europe.com'
+        domain: 'es6skeleton.tld'
     }
 };
 

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('eurus')
+    angular.module('core')
         .filter('translateItem', translateItem);
 
     function translateItem ($translate) {

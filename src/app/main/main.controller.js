@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('eurus')
+        .module('core')
         .controller('MainController', MainController);
 
     /** @ngInject */
