@@ -10,12 +10,13 @@
         var vm = this;
 
         vm.availableLanguages = languages;
+        vm.settings = new Settings(settings);
+
+        // Functions
         vm.save = save;
-        vm.settings = settings;
 
         function save () {
-            Settings.save(vm.settings)
-                .$promise
+            vm.settings.$save()
                 .then(function () { toastr.success('Settings saved'); })
                 .catch(function () { toastr.error('Error saving Settings'); });
         }

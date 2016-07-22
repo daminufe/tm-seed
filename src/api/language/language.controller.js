@@ -28,7 +28,7 @@ function postLanguage (req, res) {
     var language = new Language(req.body);
     language.createdBy = req.user.userId;
     language.isoCode = language.isoCode.toLowerCase();
-    language.strings = {about_us: null};
+    language.strings = {general: null};
 
     language.save(function (err, language) {
         if (err) {

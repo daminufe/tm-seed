@@ -35,11 +35,11 @@ let schema = mongoose.Schema({
 });
 schema.plugin(mongoosePaginate);
 
-schema.pre('save', (next) => {
+schema.pre('save', function preSave (next) {
     let user = this;
 
     // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password')) return next();
+    if (!user.password.isModified) return next();
 
     // generate a salt
     bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
@@ -56,7 +56,7 @@ schema.pre('save', (next) => {
     });
 });
 
-schema.methods.comparePassword = (candidatePassword, cb) => {
+schema.methods.comparePassword = function comparePassword (candidatePassword, cb) {
     bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
         if (err) return cb(err);
         cb(null, isMatch);

@@ -2,19 +2,19 @@
   "name": "eurus",
   "version": "0.0.0",
   "dependencies": {
-    "angular-animate": "~1.4.2",
-    "angular-cookies": "~1.4.2",
-    "angular-touch": "~1.4.2",
-    "angular-sanitize": "~1.4.2",
-    "angular-messages": "~1.4.2",
-    "angular-aria": "~1.4.2",
+    "angular-animate": "~1.5.7",
+    "angular-cookies": "~1.5.7",
+    "angular-touch": "~1.5.7",
+    "angular-sanitize": "~1.5.7",
+    "angular-messages": "~1.5.7",
+    "angular-aria": "~1.5.7",
     "jquery": "~2.1.4",
-    "angular-resource": "~1.4.2",
+    "angular-resource": "~1.5.7",
     "angular-ui-router": "~0.2.15",
     "bootstrap-sass": "~3.3.5",
     "angular-toastr": "~1.5.0",
     "animate.css": "~3.4.0",
-    "angular": "~1.4.2",
+    "angular": "~1.5.7",
     "angular-google-maps": "^2.3.2",
     "font-awesome-sass": "^4.5.0",
     "angular-bootstrap": "^1.3.2",
@@ -26,7 +26,7 @@
     "ng-file-upload": "^12.0.4"
   },
   "devDependencies": {
-    "angular-mocks": "~1.4.2"
+    "angular-mocks": "~1.5.7"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -42,6 +42,6 @@
   },
   "resolutions": {
     "jquery": "~2.1.4",
-    "angular": "~1.4.2"
+    "angular": "~1.5.7"
   }
 }
