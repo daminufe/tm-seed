@@ -6,6 +6,7 @@ let jwt = require('jsonwebtoken');
 let _ = require('lodash');
 let nodemailer = require('nodemailer');
 let Helpers = require('../helpers');
+let server = require('../server');
 
 let User = mongoose.model('User');
 let smtpTransport = nodemailer.createTransport(config.mailer.options);

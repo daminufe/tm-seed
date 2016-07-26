@@ -19,21 +19,21 @@
 
         /** @ngInject */
         function NavbarController(Language, $translate) {
-            var vm = this;
-            vm.selectLanguage = selectLanguage;
-            vm.mobileVisible = false;
-            vm.toggleMobileMenu = toggleMobileMenu;
-
-            vm.languages = Language.publicList();
-            vm.currentLang = $translate.use() || 'en';
-
-            function selectLanguage(lang) {
-                $translate.use(vm.currentLang = lang.isoCode.toLowerCase());
-            }
-
-            function toggleMobileMenu(status) {
-                vm.mobileVisible = status;
-            }
+            // var vm = this;
+            // vm.selectLanguage = selectLanguage;
+            // vm.mobileVisible = false;
+            // vm.toggleMobileMenu = toggleMobileMenu;
+            //
+            // vm.languages = Language.publicList();
+            // vm.currentLang = $translate.use() || 'en';
+            //
+            // function selectLanguage(lang) {
+            //     $translate.use(vm.currentLang = lang.isoCode.toLowerCase());
+            // }
+            //
+            // function toggleMobileMenu(status) {
+            //     vm.mobileVisible = status;
+            // }
         }
     }
 

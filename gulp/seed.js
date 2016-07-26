@@ -4,8 +4,9 @@ let gulp = require('gulp');
 let mongoose = require('../src/api/mongoose-config');
 let util = require('gulp-util');
 let chalk = require('chalk');
+let bcrypt = require('bcrypt');
 
-
+const SALT_WORK_FACTOR = 10;
 let User = mongoose.model('User');
 let Language = mongoose.model('Language');
 let Page = mongoose.model('Page');
@@ -15,25 +16,37 @@ gulp.task('seed', ['seed:admin', 'seed:languages', 'seed:settings']);
 gulp.task('seed:admin', () => {
     let password = Math.random().toString(36).slice(-6);
     let email = util.env.email || 'contact@example.com';
-    let user = new User({
-        name: 'Admin',
-        username: 'admin',
-        email: email,
-        password: password,
-        roles: ['admin'],
-        updated: Date.now()
+
+    bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
+        if (err) return next(err);
+
+        // hash the password along with our new salt
+        bcrypt.hash(password, salt, (err, hash) => {
+            if (err) return next(err);
+
+            let user = new User({
+                name: 'Admin',
+                username: 'admin',
+                email: email,
+                password: hash,
+                roles: ['admin'],
+                updated: Date.now()
+            });
+
+            user.save(function (err) {
+                if (err) {
+                    console.log(chalk.red(err.errmsg));
+                } else {
+                    console.log(chalk.green('Created user:'));
+                    console.log(chalk.green('username:\t') + chalk.yellow('admin'));
+                    console.log(chalk.green('email:\t\t') + chalk.yellow(email));
+                    console.log(chalk.green('password:\t') + chalk.yellow(password));
+                }
+            });
+        });
     });
 
-    user.save(function (err) {
-        if (err) {
-            console.log(chalk.red(err.errmsg))
-        } else {
-            console.log(chalk.green('Created user:'))
-            console.log(chalk.green('username:\t') + chalk.yellow('admin'))
-            console.log(chalk.green('email:\t\t') + chalk.yellow(email))
-            console.log(chalk.green('password:\t') + chalk.yellow(password))
-        }
-    })
+
 
     return
 })
